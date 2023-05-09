@@ -97,14 +97,26 @@ int main()
 	// Creating the (objects in the) world:
 	CompositeHittable world;	// empty world
 
-	auto left_object_material = std::make_shared<Diffuse>(Vector3D{ 1.0,0.0,0.0 });
-	auto right_object_material = std::make_shared<Diffuse>(Vector3D{ 0.0,0.0,1.0});
+	/*auto left_object_material = std::make_shared<Metal>(Vector3D{0.0,0.0,1.0}, 0.0);
+	auto right_object_material = std::make_shared<Diffuse>(Vector3D{ 1.0,0.0,0.0});
 	double r = std::cos(pi / 4.0);
-	world.add(std::make_shared<Sphere>(Point3D{ -r, 0.0, -1.0 }, r, left_object_material));
-	world.add(std::make_shared<Sphere>(Point3D{ r, 0.0, -1.0 }, r, right_object_material));
+	world.add(std::make_shared<Sphere>(Point3D{ -r, 0.0, -1.0 }, r, right_object_material));
+	world.add(std::make_shared<Sphere>(Point3D{ r, 0.0, -1.0 }, r, left_object_material));*/
+
+	auto ground_material = std::make_shared<Diffuse>(Vector3D{ 0.8,0.8,0.0 });
+	auto center_object_material = std::make_shared<Diffuse>(Vector3D{ 0.1,0.2,0.5 });
+	auto left_object_material = std::make_shared<Dielectric>(1.5);
+	auto right_object_material = std::make_shared<Metal>(Vector3D{ 0.8,0.6,0.2 }, 0.0);
+
+	world.add(std::make_shared<Sphere>(Point3D{ 0.0, -100.5, -1.0 }, 100.0, ground_material));		// add the ground
+	world.add(std::make_shared<Sphere>(Point3D{ 0.0, 0.0, -1.0 }, 0.5, center_object_material));	// add a ball on the ground
+	world.add(std::make_shared<Sphere>(Point3D{ -1.0, 0.0, -1.0 }, 0.5, left_object_material));		// add another ball on the ground to the left
+	world.add(std::make_shared<Sphere>(Point3D{ -1.0, 0.0, -1.0 }, -0.45, left_object_material));	// making the left sphere a hollow sphere
+	world.add(std::make_shared<Sphere>(Point3D{ 1.0, 0.0, -1.0 }, 0.5, right_object_material));		// add another ball on the ground to the right
 
 	// Camera:
-	Camera camera{ 90, aspect_ratio };
+	Camera camera{ {-2,2,1}, {0,0,-1}, {0,1,0}, 20, aspect_ratio };
+	//Camera camera{ {0,0,0}, {0,0,-1}, {0,1,0}, 90, aspect_ratio };
 
 	// Rendering (i.e. output data):
 	// (Note that by using > operator in Windows Command Prompt the contents of std::cout can be redirected to a file while the contents of std::cerr remains in the terminal)

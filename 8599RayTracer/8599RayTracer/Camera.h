@@ -24,7 +24,7 @@ public:
 
 	Camera(const Point3D& look_from, const Point3D& look_at, const Vector3D& up_direction, const double vertical_fov, const double aspect_ratio)
 	// the fov should be provided in degree.
-	// For the current implementation, up_direction can not be (too) close to w (the inverse view direction).
+	// For the current implementation, up_direction can not be aligned on w (the inverse view direction).
 	{
 		double theta = degrees_to_radians(vertical_fov);
 		double half_height = std::tan(theta / 2.0);

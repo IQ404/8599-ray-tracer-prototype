@@ -127,7 +127,7 @@ public:
 	bool near_zero() const
 	{
 		static const double minimum = 1e-8;
-		return ((std::fabs(v[0] < minimum)) && (std::fabs(v[1] < minimum)) && (std::fabs(v[2] < minimum)));
+		return ((std::fabs(v[0]) < minimum) && (std::fabs(v[1]) < minimum) && (std::fabs(v[2]) < minimum));
 		// C++ side note: fabs() is the floating point number version of abs()
 	}
 };

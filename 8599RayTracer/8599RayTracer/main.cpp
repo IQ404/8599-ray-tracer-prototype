@@ -18,7 +18,7 @@
 #define GammaCorrection 1			// 0 or 1
 #define ShadowAcneElimination 1		// 0 or 1
 #define DiffuseMode 1				// 0: IN-sphere; 1: ON-sphere (Lambertian); 2: IN-hemisphere
-#define DepthOfField 1				// 0 or 1
+#define DepthOfField 0				// 0 or 1
 // -------------------------------------------------------------------
 
 #include <iostream>
@@ -98,14 +98,13 @@ int main()
 	// Creating the (objects in the) world:
 	CompositeHittable world;	// empty world
 
-	/*auto left_object_material = std::make_shared<Diffuse>(Vector3D{0.0,0.0,1.0});
+	auto left_object_material = std::make_shared<Diffuse>(Vector3D{0.0,0.0,1.0});
 	auto right_object_material = std::make_shared<Diffuse>(Vector3D{ 1.0,0.0,0.0});
 	double r = std::cos(pi / 4.0);
-	world.add(std::make_shared<Sphere>(Point3D{ -r, 0.0, -1.5 }, r/2, right_object_material));
-	world.add(std::make_shared<Sphere>(Point3D{ 0, 0.0, -1.5 }, r/2, left_object_material));
-	world.add(std::make_shared<Sphere>(Point3D{ r, 0.0, -1.5 }, r/2, right_object_material));*/
+	world.add(std::make_shared<Sphere>(Point3D{ -r, 0.0, -1.0 }, r, left_object_material));
+	world.add(std::make_shared<Sphere>(Point3D{ r, 0.0, -1.0 }, r, right_object_material));
 
-	auto material_ground = std::make_shared<Diffuse>(ColorRGB(0.8, 0.8, 0.0));
+	/*auto material_ground = std::make_shared<Diffuse>(ColorRGB(0.8, 0.8, 0.0));
 	auto material_center = std::make_shared<Diffuse>(ColorRGB(0.1, 0.2, 0.5));
 	auto material_left = std::make_shared<Dielectric>(1.5);
 	auto material_right = std::make_shared<Metal>(ColorRGB(0.8, 0.6, 0.2), 0.0);
@@ -114,7 +113,7 @@ int main()
 	world.add(std::make_shared<Sphere>(Point3D(0.0, 0.0, -1.0), 0.5, material_center));
 	world.add(std::make_shared<Sphere>(Point3D(-1.0, 0.0, -1.0), 0.5, material_left));
 	world.add(std::make_shared<Sphere>(Point3D(-1.0, 0.0, -1.0), -0.45, material_left));
-	world.add(std::make_shared<Sphere>(Point3D(1.0, 0.0, -1.0), 0.5, material_right));
+	world.add(std::make_shared<Sphere>(Point3D(1.0, 0.0, -1.0), 0.5, material_right));*/
 
 	// Camera:
 #if DepthOfField
@@ -122,9 +121,9 @@ int main()
 #else
 	const double aperture = 0.0;
 #endif // DepthOfField
-	Vector3D at = ((Vector3D{ 3,3,2 } - Vector3D{ 0,0,-1 }) / 8.0) + Vector3D{0,0,-1};
-	Camera camera{ {3,3,2}, at, {0,1,0}, 20, aspect_ratio, aperture };
-	//Camera camera{ {0,0,0}, {0,0,-1}, {0,1,0}, 90, aspect_ratio, aperture };
+	/*Vector3D at = ((Vector3D{ 3,3,2 } - Vector3D{ 0,0,-1 }) / 8.0) + Vector3D{0,0,-1};
+	Camera camera{ {3,3,2}, at, {0,1,0}, 20, aspect_ratio, aperture };*/
+	Camera camera{ {0,0,0}, {0,0,-1}, {0,1,0}, 90, aspect_ratio, aperture };
 
 	// Rendering (i.e. output data):
 	// (Note that by using > operator in Windows Command Prompt the contents of std::cout can be redirected to a file while the contents of std::cerr remains in the terminal)

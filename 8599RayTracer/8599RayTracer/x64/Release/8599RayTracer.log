@@ -3,7 +3,7 @@
 C:\Users\Xiaoyang\Desktop\8599\8599RayTracer\8599RayTracer\Material.h(14,16): warning C4099: 'HitRecord': type name first seen using 'struct' now seen using 'class'
 C:\Users\Xiaoyang\Desktop\8599\8599RayTracer\8599RayTracer\HitRecord.h(16,8): message : see declaration of 'HitRecord'
   Generating code
-  1 of 519 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  1 of 520 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
     0 functions had inline decision re-evaluated but remain unchanged
   Finished generating code

@@ -10,7 +10,7 @@
 #define VECTOR3D_H
 
 #include <iostream>
-#include <cmath>		// to use std::sqrt
+#include <cmath>		// to use std::sqrt etc.
 #include <cassert>
 //#define NDEBUG		// uncomment this if we don't want assertion (e.g. when we want things like inf)
 #include "RayTracingToolbox.h"
@@ -215,6 +215,19 @@ inline Vector3D random_in_unit_hemisphere(const Vector3D& normal)
 		return p;
 	}
 	return -p;
+}
+
+inline Vector3D random_in_unit_xy_disk()
+{
+	while (true)
+	{
+		Vector3D p{ random_real_number(-1.0,1.0),random_real_number(-1.0,1.0),0.0 };
+		if (p.squared_length() >= 1.0)
+		{
+			continue;
+		}
+		return p;
+	}
 }
 
 inline Vector3D direction_of_mirror_reflection(const Vector3D& incident_direction, const Vector3D& normal)

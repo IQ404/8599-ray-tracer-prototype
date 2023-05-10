@@ -16,4 +16,8 @@ But, again, it never appears on the left:
 
 <img src="https://github.com/IQ404/8599-ray-tracer-prototype/blob/main/Sample%20Images/RedDiffuseBlueMetal.jpg" width="600" height="400"></a>
 
-This
+This may be seen more clearly without shadow acne elimination:
+
+<img src="https://github.com/IQ404/8599-ray-tracer-prototype/blob/main/Sample%20Images/from_left.jpg" width="650" height="400"></a>
+
+<img src="https://github.com/IQ404/8599-ray-tracer-prototype/blob/main/Sample%20Images/from_right.jpg" width="650" height="400"></a>

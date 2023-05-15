@@ -4,7 +4,11 @@
 
 Currently, this particular program is design to produce the data for one single image each time we run the executable file in the Command Prompt.
 
-When running the executable file in the Command Prompt, please redirect the outputs to a `.ppm` file.
+When running the executable file in the Command Prompt, please redirect the outputs to a `.ppm` file. E.g.
+
+```
+8599RayTracer.exe > output_image.ppm
+```
 
 A `.ppm` file can be rendered into an image using:
 

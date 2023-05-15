@@ -8,7 +8,7 @@ When running the executable file in the Command Prompt, please redirect the outp
 
 A `.ppm` file can be rendered into an image using:
 
-= **Portable Anymap Viewer** (on Windows)
+- **Portable Anymap Viewer** (on Windows)
 - **GIMP**
 
 ## Progression

@@ -54,6 +54,17 @@ inline double random_real_number(double min, double max)	// returns value in [mi
 	return min + (max - min) * random_real_number();
 }
 
+inline double fast_random()
+/*
+PCG
+References see:
+	https://www.reedbeta.com/blog/hash-functions-for-gpu-rendering/
+	https://www.reedbeta.com/blog/quick-and-easy-gpu-random-numbers-in-d3d11/
+*/
+{
+	// TODO: currently not implemented because it will generate the same image for the same scene.
+}
+
 inline double clamp(double r, double min, double max)
 {
 	assert(min <= max);

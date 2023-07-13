@@ -1,5 +1,9 @@
 # 8599-ray-tracer-prototype
 
+**Please note that most of the features in this prototype have now been integrated into the 8599 Non Physical Path Tracer which uses Walnut GUI.**
+
+Please see [this branch](https://github.com/IQ404/8599-ray-tracer-gui/tree/non_physical_path_tracer).
+
 ## Housekeeping
 
 Currently, this particular program is design to produce the data for one single image each time we run the executable file in the Command Prompt.
